@@ -1,0 +1,196 @@
+.icu-relative,
+.icu-rela {
+	position: relative;
+}
+
+.icu-absolute,
+.icu-abso {
+	position: absolute;
+}
+
+
+
+
+.icu-flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.icu-flex-wrap {
+	flex-wrap: wrap;
+}
+
+.icu-flex-nowrap {
+	flex-wrap: nowrap;
+}
+
+.icu-col-center {
+	align-items: center;
+}
+
+.icu-col-top {
+	align-items: flex-start;
+}
+
+.icu-col-bottom {
+	align-items: flex-end;
+}
+
+.icu-row-center {
+	justify-content: center;
+}
+
+.icu-row-left {
+	justify-content: flex-start;
+}
+
+.icu-row-right {
+	justify-content: flex-end;
+}
+
+.icu-row-between {
+	justify-content: space-between;
+}
+
+.icu-row-around {
+	justify-content: space-around;
+}
+
+.icu-text-left {
+	text-align: left;
+}
+
+.icu-text-center {
+	text-align: center;
+}
+
+.icu-text-right {
+	text-align: right;
+}
+
+.icu-flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+// 定义flex等分
+@for $i from 0 through 12 {
+	.icu-flex-#{$i} {
+		flex: $i;
+	}
+}
+
+// 定义字体(px)单位，小于20都为px单位字体
+@for $i from 10 to 40 {
+	.icu-font-#{$i} {
+		font-size: $i + px;
+	}
+}
+
+
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.icu-margin-#{$i}, .icu-m-#{$i} {
+			margin: $i + px!important;
+		}
+		
+		// 得出：u-padding-30或者u-p-30
+		.icu-padding-#{$i}, .icu-p-#{$i} {
+			padding: $i + px!important;
+		}
+		
+		@each $short, $long in l left, t top, r right, b bottom {
+			// 缩写版，结果如： u-m-l-30
+			// 定义外边距
+			.icu-m-#{$short}-#{$i} {
+				margin-#{$long}: $i + px!important;
+			}
+			
+			// 定义内边距
+			.icu-p-#{$short}-#{$i} {
+				padding-#{$long}: $i + px!important;
+			}
+			
+			// 完整版，结果如：u-margin-left-30
+			// 定义外边距
+			.icu-margin-#{$long}-#{$i} {
+				margin-#{$long}: $i + px!important;
+			}
+			
+			// 定义内边距
+			.icu-padding-#{$long}-#{$i} {
+				padding-#{$long}: $i + px!important;
+			}
+		}
+	}
+}
+
+
+
+
+ /* 超出行数隐藏（text-line-{1-12}）*/
+ @for $i from 1 through 13 {
+    .text-line-#{$i} {
+        overflow: hidden;
+        text-overflow: ellipsis !important;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $i !important;
+        lines: $i;
+    }
+  }
+  .text-cut{
+     overflow: hidden;
+     text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+ 
+ 
+ /* ====================
+         定位
+  ======================*/
+ .position{
+     /* 指的是仅当元素滚动到页面之外时，元素会固定在页面窗口的顶部 */
+     &-sticky{
+         position: sticky !important;
+     }
+     /* 保证元素在页面窗口中的对应位置显示 */
+     &-fixed{
+         position: fixed !important;
+     }
+     &-relative{
+         position: relative !important;
+     }
+     &-absolute{
+         position: absolute !important;
+     }
+     /* 左上角 */
+     &-lt{
+         left: 0;
+         top: 0;
+     }
+     /* 右上角 */
+     &-rt{
+         right: 0;
+         top: 0;
+     }
+     /* 左下角 */
+     &-lb{
+         left: 0;
+         bottom: 0;
+     }
+     /* 右下角 */
+     &-rb{
+         right: 0;
+         bottom: 0;
+     }
+ }
+ /* 保证元素在页面窗口中的对应位置显示 */
+ .position-fixed{position: fixed !important;}
+ /* 指的是仅当元素滚动到页面之外时，元素会固定在页面窗口的顶部 */
+ .position-sticky{position: sticky !important;}

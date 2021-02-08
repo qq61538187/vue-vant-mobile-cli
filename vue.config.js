@@ -1,68 +1,43 @@
 'use strict'
 const path = require('path')
-const defaultSettings = require('./src/config/index.js')
+const { version, author } = require('./package.json')
+const {
+  publicPath,
+  assetsDir,
+  outputDir,
+  lintOnSave,
+  title,
+  devPort
+
+} = require('./src/config')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const dayjs = require('dayjs')
+const time = dayjs().format('YYYY-M-D HH:mm:ss')
+process.env.VUE_APP_TITLE = title
+process.env.VUE_APP_AUTHOR = author
+process.env.VUE_APP_UPDATE_TIME = time
+process.env.VUE_APP_VERSION = version
 
 const resolve = dir => path.join(__dirname, dir)
 // page title
-const name = defaultSettings.title || 'vue mobile template'
+const name = title
 // 生产环境，测试和正式
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
-// externals
-// const externals = {
-//   vue: 'Vue',
-//   'vue-router': 'VueRouter',
-//   vuex: 'Vuex',
-//   vant: 'vant',
-//   axios: 'axios'
-// }
-// CDN外链，会插入到index.html中
-// const cdn = {
-//   // 开发环境
-//   dev: {
-//     css: [],
-//     js: []
-//   },
-//   // 生产环境
-//   build: {
-//     css: ['https://cdn.jsdelivr.net/npm/vant@2.4.7/lib/index.css'],
-//     js: [
-//       'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
-//       'https://cdn.jsdelivr.net/npm/vue-router@3.1.5/dist/vue-router.min.js',
-//       'https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js',
-//       'https://cdn.jsdelivr.net/npm/vuex@3.1.2/dist/vuex.min.js',
-//       'https://cdn.jsdelivr.net/npm/vant@2.4.7/lib/index.min.js'
-//     ]
-//   }
-// }
 
 module.exports = {
-  publicPath: './', // 署应用包时的基本 URL。 vue-router hash 模式使用
-  //  publicPath: '/app/', //署应用包时的基本 URL。  vue-router history模式使用
-  outputDir: 'dist', //  生产环境构建文件的目录
-  assetsDir: 'static', //  outputDir的静态资源(js、css、img、fonts)目录
-  // lintOnSave: !IS_PROD,
-  lintOnSave: false,
+  publicPath,
+  outputDir,
+  assetsDir,
+  lintOnSave,
   productionSourceMap: false, // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
   devServer: {
-    port: 9020, // 端口
+    port: devPort, // 端口
     open: false, // 启动后打开浏览器
     overlay: {
       //  当出现编译器错误或警告时，在浏览器中显示全屏覆盖层
       warnings: false,
       errors: true
     }
-    // proxy: {
-    //   //配置跨域
-    //   '/api': {
-    //       target: "https://test.xxx.com",
-    //       // ws:true,
-    //       changOrigin:true,
-    //       pathRewrite:{
-    //           '^/api':'/'
-    //       }
-    //   }
-    // }
   },
   css: {
     extract: IS_PROD, // 是否将组件中的 CSS 提取至一个独立的 CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码)。
@@ -74,7 +49,6 @@ module.exports = {
         prependData: `
           @import "assets/css/mixin.scss";
           @import "assets/css/variables.scss";
-          $cdn: "${defaultSettings.$cdn}";
           `
       }
     }
@@ -97,7 +71,6 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('assets', resolve('src/assets'))
-      .set('api', resolve('src/api'))
       .set('views', resolve('src/views'))
       .set('components', resolve('src/components'))
 

@@ -1,5 +1,7 @@
 <template>
   <div>
+    <van-nav-bar left-arrow @click-left="_routerBack" title="List" fixed :z-index="10"></van-nav-bar>
+    <div class="icu-p-t-60">
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
   <van-list
     v-model="loading"
@@ -10,12 +12,14 @@
     <van-cell v-for="item in list" :key="item" :title="item" />
   </van-list>
 </van-pull-refresh>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TabApi',
+  name: 'ComponentsList',
   data() {
     return {
       list: [],

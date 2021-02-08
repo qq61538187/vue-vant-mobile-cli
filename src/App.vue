@@ -16,5 +16,17 @@ export default {
 }
 </script>
 <style lang="scss">
-   
+@import "@/style/index.scss";
+
+  /* 主视图宽度限制 */
+    // #app {
+    //     max-width: 7.5rem;
+    //     margin: 0 auto;
+    // }
+
+    // .container {
+    //     max-width: 7.5rem;
+    //     margin: 0 auto;
+    //     overflow-x: hidden;
+    // }
 </style>

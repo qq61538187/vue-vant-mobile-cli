@@ -20,63 +20,63 @@
 </template>
 
 <script>
-  export default {
-    name: "tabs",
-    watch: {
-      '$route'() {
-        this.checkTabSelection();
-      }
-    },
-    computed: {
-      // 获取图标资源
-      getTabIconSrc() {
-        return (item, active) => {
-          let img = active ? item.active : item.normal;
-          return   'static/tabs/' + img+'?t=1111';
-        }
-      },
-    },
-    data() {
-      return {
-        tabBarSelect: 0,
-        // Tab栏数据
-        tabItemList: [
-          {
-            active: 'main_tab_3.png',
-            normal: 'main_tab_2.png',
-            name: '组件',
-            to: "components"
-          },
-          {
-            active: 'main_tab_5.png',
-            normal: 'main_tab_4.png',
-            name: '接口',
-            to: "api"
-          },
-          {
-            active: 'main_tab_7.png',
-            normal: 'main_tab_6.png',
-            name: '模板',
-            to: "template"
-          },
-        ],
-      };
-    },
-    methods: {
-      // 看一下tab栏应给高亮哪一个
-      checkTabSelection() {
-        for (let i = 0; i < this.tabItemList.length; i++) {
-          let p = this.tabItemList[i];
-          if (this.$route.path.endsWith(p.to)) {
-            this.tabBarSelect = i;
-          }
-        }
-      }
-    },
-    mounted() {
-      this.checkTabSelection();
+export default {
+  name: 'Tabs',
+  watch: {
+    '$route'() {
+      this.checkTabSelection()
     }
+  },
+  computed: {
+    // 获取图标资源
+    getTabIconSrc() {
+      return (item, active) => {
+        const img = active ? item.active : item.normal
+        return 'imgs/tabs/' + img + '?t=1111'
+      }
+    }
+  },
+  data() {
+    return {
+      tabBarSelect: 0,
+      // Tab栏数据
+      tabItemList: [
+        {
+          active: 'main_tab_3.png',
+          normal: 'main_tab_2.png',
+          name: '组件',
+          to: 'components'
+        },
+        {
+          active: 'main_tab_5.png',
+          normal: 'main_tab_4.png',
+          name: '接口',
+          to: 'api'
+        },
+        {
+          active: 'main_tab_7.png',
+          normal: 'main_tab_6.png',
+          name: '模板',
+          to: 'template'
+        }
+      ]
+    }
+  },
+  methods: {
+    // 看一下tab栏应给高亮哪一个
+    checkTabSelection() {
+      for (let i = 0; i < this.tabItemList.length; i++) {
+        const p = this.tabItemList[i]
+        if (this.$route.path.endsWith(p.to)) {
+          this.tabBarSelect = i
+        }
+      }
+    }
+  },
+  mounted() {
+    this.checkTabSelection()
   }
+}
 </script>
 
 <style scoped>
