@@ -1,5 +1,5 @@
  //如果px单位是大写，说明按原样输出 
- .icu-box-bb{
+.icu-box-bb{
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-o-box-sizing: border-box;
@@ -10,8 +10,6 @@
 /*flex 布局*/
 .icu-flex {
 	display: flex;
-	flex-direction: row;
-	align-items: center;
 }
 
 .icu-flex-wrap {
@@ -65,6 +63,10 @@
 .icu-text-right {
 	text-align: right;
 }
+.icu-flex-row{
+	display: flex;
+	flex-direction: row;
+}
 
 .icu-flex-col {
 	display: flex;
@@ -86,7 +88,7 @@
 }
 
 // 自定义字体行高
-@for $i from 10 to 40 {
+@for $i from 10 to 80 {
 	.icu-lh-#{$i} {
 		line-height: $i + px;
 	}
@@ -154,41 +156,44 @@ text-indent: 28px;
 }
 
 
+.icu-m-auto{
+	margin: 0 auto;
+}
 // 定义内外边距，历遍1-80
 @for $i from 0 through 80 {
 	// 只要双数和能被5除尽的数
 	@if $i % 2 == 0 or $i % 5 == 0 {
 		// 得出：u-margin-30或者u-m-30
 		.icu-margin-#{$i}, .icu-m-#{$i} {
-			margin: $i + px!important;
+			margin: $i + px;
 		}
 		
 		// 得出：u-padding-30或者u-p-30
 		.icu-padding-#{$i}, .icu-p-#{$i} {
-			padding: $i + px!important;
+			padding: $i + px;
 		}
 		
 		@each $short, $long in l left, t top, r right, b bottom {
 			// 缩写版，结果如： u-m-l-30
 			// 定义外边距
 			.icu-m-#{$short}-#{$i} {
-				margin-#{$long}: $i + px!important;
+				margin-#{$long}: $i + px;
 			}
 			
 			// 定义内边距
 			.icu-p-#{$short}-#{$i} {
-				padding-#{$long}: $i + px!important;
+				padding-#{$long}: $i + px;
 			}
 			
 			// 完整版，结果如：u-margin-left-30
 			// 定义外边距
 			.icu-margin-#{$long}-#{$i} {
-				margin-#{$long}: $i + px!important;
+				margin-#{$long}: $i + px;
 			}
 			
 			// 定义内边距
 			.icu-padding-#{$long}-#{$i} {
-				padding-#{$long}: $i + px!important;
+				padding-#{$long}: $i + px;
 			}
 		}
 	}
@@ -198,10 +203,10 @@ text-indent: 28px;
  @for $i from 1 through 13 {
     .text-line-#{$i} {
         overflow: hidden;
-        text-overflow: ellipsis !important;
+        text-overflow: ellipsis ;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: $i !important;
+        -webkit-line-clamp: $i ;
         lines: $i;
     }
   }
@@ -218,17 +223,17 @@ text-indent: 28px;
  .icu-pos{
      /* 指的是仅当元素滚动到页面之外时，元素会固定在页面窗口的顶部 */
      &-st{
-         position: sticky !important;
+         position: sticky ;
      }
      /* 保证元素在页面窗口中的对应位置显示 */
      &-fix{
-         position: fixed !important;
+         position: fixed ;
      }
      &-rel{
-         position: relative !important;
+         position: relative ;
      }
      &-abs{
-         position: absolute !important;
+         position: absolute ;
      }
      /* 左上角 */
      &-lt{
@@ -296,3 +301,95 @@ text-indent: 28px;
 .icu-bdr-10{
 	border-radius:10px;
 }
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		.icu-bdr-#{$i}{
+			border-radius: $i + px;
+		}
+		@each $short, $long in tl top-left, tr top-right, br bottom-left right,bl bottom-left {
+			.icu-bdr-#{$short}-#{$i} {
+				border-#{$long}-radius: $i + px;
+			}
+		}
+	}
+}
+
+
+
+   /*字体颜色*/
+  .icu-color-grey {
+	color: #a3a3a3;
+  }
+  .icu-color-active {
+	color: #1da1f2;
+  }
+  .icu-color-orange {
+	color: #ff5b06;
+  }
+  .icu-color-orange1 {
+	color: #F98962;
+  }
+  .icu-color-green {
+	color: #34cd65;
+  }
+  .icu-color-blue {
+	color: #1da1f2 !important;
+  }
+  .icu-color-white {
+	color: #fff;
+  }
+
+/*背景颜色*/
+.icu-bg-white {
+    background: white;
+}
+
+
+
+/* 渐变色*/
+.lgblue {
+	background: -webkit-linear-gradient(to right,#42C1FF,#1DA1F2); /* Safari 5.1-6.0 */
+	background: -o-linear-gradient(to right,#42C1FF,#1DA1F2); /* Opera 11.1-12.0 */
+	background: -moz-linear-gradient(to right,#42C1FF,#1DA1F2); /* Firefox 3.6-15 */
+	background: linear-gradient(to right,#42C1FF,#1DA1F2); /* 标准语法 */
+  }
+  .lgblue2 {
+	background: -webkit-linear-gradient(to right,#23B2FA,#1DA1F2); /* Safari 5.1-6.0 */
+	background: -o-linear-gradient(to right,#23B2FA,#1DA1F2); /* Opera 11.1-12.0 */
+	background: -moz-linear-gradient(to right,#23B2FA,#1DA1F2); /* Firefox 3.6-15 */
+	background: linear-gradient(to right,#23B2FA,#1DA1F2); /* 标准语法 */
+  }
+  .lgblue3 {
+	background: -webkit-linear-gradient(#2E77E6,#1DA1F2); /* Safari 5.1-6.0 */
+	background: -o-linear-gradient(#2E77E6,#1DA1F2); /* Opera 11.1-12.0 */
+	background: -moz-linear-gradient(#2E77E6,#1DA1F2); /* Firefox 3.6-15 */
+	background: linear-gradient(#2E77E6,#1DA1F2); /* 标准语法 */
+  }
+  .lgblue4 {
+	background: -webkit-linear-gradient(#1DA1F2, #42C1FF); /* Safari 5.1-6.0 */
+	background: -o-linear-gradient(#1DA1F2, #42C1FF); /* Opera 11.1-12.0 */
+	background: -moz-linear-gradient(#1DA1F2, #42C1FF); /* Firefox 3.6-15 */
+	background: linear-gradient(#1DA1F2, #42C1FF); /* 标准语法 */
+  }
+  .lgblue5 {
+	background: -webkit-linear-gradient(to right,#22BFFF,#159CEF); /* Safari 5.1-6.0 */
+	background: -o-linear-gradient(to right,#22BFFF,#159CEF); /* Opera 11.1-12.0 */
+	background: -moz-linear-gradient(to right,#22BFFF,#159CEF); /* Firefox 3.6-15 */
+	background: linear-gradient(to right,#22BFFF,#159CEF); /* 标准语法 */
+  }
+  
+  .lgyellow1{
+	background: -webkit-linear-gradient(to right,#FFDB26,#FFD814); /* Safari 5.1-6.0 */
+	  background: -o-linear-gradient(to right,#FFDB26,#FFD814); /* Opera 11.1-12.0 */
+	  background: -moz-linear-gradient(to right,#FFDB26,#FFD814); /* Firefox 3.6-15 */
+	  background: linear-gradient(to right,#FFDB26,#FFD814); /* 标准语法 */
+  }
+  .lgred1{
+	background: -webkit-linear-gradient(to right,#FF7A5C,#FF406C); /* Safari 5.1-6.0 */
+	  background: -o-linear-gradient(to right,#FF7A5C,#FF406C); /* Opera 11.1-12.0 */
+	  background: -moz-linear-gradient(to right,#FF7A5C,#FF406C); /* Firefox 3.6-15 */
+	  background: linear-gradient(to right,#FF7A5C,#FF406C); /* 标准语法 */
+  }
