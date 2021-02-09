@@ -25,5 +25,15 @@ export const constantRouterMap = [
     path: '/components/list',
     component: () => import('@/views/components/list/index.vue')
     // meta: { keepAlive: true }
+  },{
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/404'),
+    hidden: true,
+  },
+  {
+    path: '*',
+    redirect: '/404',
+    hidden: true,
   }
 ]
