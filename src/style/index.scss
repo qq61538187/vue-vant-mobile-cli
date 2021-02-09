@@ -1,5 +1,5 @@
  //如果px单位是大写，说明按原样输出 
-.icu-box-bb{
+ .icu-box-bb{
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-o-box-sizing: border-box;
@@ -80,6 +80,13 @@
 	}
 }
 
+
+
+.icu-font-n {
+    font-weight: normal;
+    font-style: normal;
+}
+
 // 定义字体(px)单位，小于20都为px单位字体
 @for $i from 10 to 40 {
 	.icu-font-#{$i} {
@@ -110,6 +117,7 @@
 .icu-fw-600{
 	font-weight:600;
 }
+
 
 // 定义空元素高度
 @for $i from 6 to 60 {
@@ -160,7 +168,7 @@ text-indent: 28px;
 	margin: 0 auto;
 }
 // 定义内外边距，历遍1-80
-@for $i from 0 through 80 {
+@for $i from 0 through 120 {
 	// 只要双数和能被5除尽的数
 	@if $i % 2 == 0 or $i % 5 == 0 {
 		// 得出：u-margin-30或者u-m-30
@@ -298,11 +306,6 @@ text-indent: 28px;
 }
 
 /*圆角radius*/
-.icu-bdr-10{
-	border-radius:10px;
-}
-
-// 定义内外边距，历遍1-80
 @for $i from 0 through 80 {
 	// 只要双数和能被5除尽的数
 	@if $i % 2 == 0 or $i % 5 == 0 {
@@ -317,7 +320,9 @@ text-indent: 28px;
 	}
 }
 
-
+/*视图 overflow*/
+.icu-ov-h{overflow:hidden;}
+.icu-ov-s {overflow:scroll;}
 
    /*字体颜色*/
   .icu-color-grey {
