@@ -1,16 +1,13 @@
-.icu-relative,
-.icu-rela {
-	position: relative;
+ //如果px单位是大写，说明按原样输出 
+ .icu-box-bb{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-.icu-absolute,
-.icu-abso {
-	position: absolute;
-}
-
-
-
-
+/*flex 布局*/
 .icu-flex {
 	display: flex;
 	flex-direction: row;
@@ -88,6 +85,30 @@
 	}
 }
 
+// 自定义字体行高
+@for $i from 10 to 40 {
+	.icu-lh-#{$i} {
+		line-height: $i + px;
+	}
+}
+
+.icu-f-100{
+	font-weight:100;
+}
+
+.icu-f-300{
+	font-weight:300;
+}
+
+
+.icu-f-500{
+	font-weight:500;
+}
+
+.icu-f-600{
+	font-weight:600;
+}
+
 // 定义空元素高度
 @for $i from 6 to 60 {
 	.icu-h-#{$i} {
@@ -95,7 +116,42 @@
 	}
 }
 
+/*垂直居中*/
+.icu-va-m{
+vertical-align: middle;
+}
+.icu-va-t{
+vertical-align: top;
+}
+.icu-va-b{
+vertical-align: bottom;
+}
+.icu-va-l {
+vertical-align: baseline;
+}
 
+/*文本对齐 center,right*/
+.icu-ta-c {text-align:center;}
+.icu-ta-r {text-align:right;}
+.icu-ta-l {text-align:left;}
+.icu-ta-j {text-align:justify;}
+
+/*文本缩进*/
+.icu-ti-20{
+	text-indent:20px;
+}
+.icu-ti-24{
+text-indent: 24px;
+}
+.icu-ti-26{
+text-indent: 26px;
+}
+.icu-ti-28{
+text-indent: 28px;
+}
+.icu-ti-30{
+	text-indent: 30px;
+}
 
 
 // 定义内外边距，历遍1-80
@@ -139,8 +195,6 @@
 }
 
 
-
-
  /* 超出行数隐藏（text-line-{1-12}）*/
  @for $i from 1 through 13 {
     .text-line-#{$i} {
@@ -162,19 +216,19 @@
  /* ====================
          定位
   ======================*/
- .position{
+ .icu-pos{
      /* 指的是仅当元素滚动到页面之外时，元素会固定在页面窗口的顶部 */
-     &-sticky{
+     &-st{
          position: sticky !important;
      }
      /* 保证元素在页面窗口中的对应位置显示 */
-     &-fixed{
+     &-fix{
          position: fixed !important;
      }
-     &-relative{
+     &-rel{
          position: relative !important;
      }
-     &-absolute{
+     &-abs{
          position: absolute !important;
      }
      /* 左上角 */
@@ -198,7 +252,48 @@
          bottom: 0;
      }
  }
- /* 保证元素在页面窗口中的对应位置显示 */
- .position-fixed{position: fixed !important;}
- /* 指的是仅当元素滚动到页面之外时，元素会固定在页面窗口的顶部 */
- .position-sticky{position: sticky !important;}
+
+ /*透明度*/
+.icu-op-1 {opacity:0.1;}
+.icu-op-2 {opacity:0.2;}
+.icu-op-3 {opacity:0.3;}
+.icu-op-4 {opacity:0.4;}
+.icu-op-5 {opacity:0.5;}
+.icu-op-6 {opacity:0.6;}
+.icu-op-7 {opacity:0.7;}
+.icu-op-8 {opacity:0.8;}
+.icu-op-9 {opacity:0.9;}
+
+// 浮动
+.icu-fl-c {
+	zoom:1;
+	&:after{content:"";display:block;clear:both;}
+}
+.icu-fl-l {float:left;}
+.icu-fl-r {float:right;}
+
+
+
+
+/* 盒子阴影 */
+.icu-bs-1{box-shadow: 0 4px 12px rgba(153,153,153,.24) ;}
+
+/*文本阴影*/
+.icu-txs-1{
+	text-shadow: 1px 1px 1px #383838;
+}
+
+
+/*css3动画,transition*/
+.icu-trs-01s{
+	-webkit-transition: 0.1s;
+	-moz-transition: 0.1s;
+	-ms-transition: 0.1s;
+	-o-transition: 0.1s;
+	transition: 0.1s;
+}
+
+/*圆角radius*/
+.icu-bdr-10{
+	border-radius:10px;
+}

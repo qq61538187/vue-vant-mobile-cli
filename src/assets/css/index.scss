@@ -1,13 +1,12 @@
 @import './variables.scss';
-@import './mixin.scss';
 
-html,
-body .app {
-  color: #333333;
-  font-family: Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
-  background-color: $background-color;
-}
-
-.app-container {
-  padding-bottom: 50px;
-}
+/*初始化*/
+body {margin:0;font:0.14rem/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;color:#333;word-wrap:break-word;word-break:break-all;}
+.break {word-wrap:break-word;word-break:break-all;}
+ul,h3,p,input,li,dt,dl,dd,h1,h2,h3,h4,h5,h6,figure,figcaption {margin:0;padding:0;}
+li {list-style:none;}
+a {text-decoration:none;color:#333;}
+a,em {display:inline-block;}
+em {font-style:normal;}
+img {border:none;vertical-align:top;}
+input {border:none;outline:none;}
