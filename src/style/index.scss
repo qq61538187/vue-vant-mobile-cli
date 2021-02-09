@@ -92,20 +92,20 @@
 	}
 }
 
-.icu-f-100{
+.icu-fw-100{
 	font-weight:100;
 }
 
-.icu-f-300{
+.icu-fw-300{
 	font-weight:300;
 }
 
 
-.icu-f-500{
+.icu-fw-500{
 	font-weight:500;
 }
 
-.icu-f-600{
+.icu-fw-600{
 	font-weight:600;
 }
 
@@ -193,7 +193,6 @@ text-indent: 28px;
 		}
 	}
 }
-
 
  /* 超出行数隐藏（text-line-{1-12}）*/
  @for $i from 1 through 13 {
