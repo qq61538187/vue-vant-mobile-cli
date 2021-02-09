@@ -1,5 +1,5 @@
  //如果px单位是大写，说明按原样输出 
- .icu-box-bb{
+.icu-box-bb{
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-o-box-sizing: border-box;
@@ -125,6 +125,17 @@
 		height: $i + px;
 	}
 }
+
+@for $i from 40 to 300 {
+	@if $i % 2 == 0{
+		.icu-w-#{$i} {
+			width: $i + px;
+		}
+	}
+}
+
+
+
 
 /*垂直居中*/
 .icu-va-m{
@@ -385,6 +396,14 @@ text-indent: 28px;
 	background: -moz-linear-gradient(to right,#22BFFF,#159CEF); /* Firefox 3.6-15 */
 	background: linear-gradient(to right,#22BFFF,#159CEF); /* 标准语法 */
   }
+
+  .lgred6{
+	background: linear-gradient(90deg, #F3742F 0%, #F6B157 100%);
+  }
+
+  .lgred7{
+	background: linear-gradient(90deg, #7683D9 0%, #9A9CFF 100%);
+  }
   
   .lgyellow1{
 	background: -webkit-linear-gradient(to right,#FFDB26,#FFD814); /* Safari 5.1-6.0 */
@@ -398,3 +417,4 @@ text-indent: 28px;
 	  background: -moz-linear-gradient(to right,#FF7A5C,#FF406C); /* Firefox 3.6-15 */
 	  background: linear-gradient(to right,#FF7A5C,#FF406C); /* 标准语法 */
   }
+
