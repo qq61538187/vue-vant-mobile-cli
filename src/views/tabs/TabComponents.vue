@@ -3,6 +3,7 @@
     <van-cell-group title="展示组件">
        <van-cell title="List 列表"  is-link  to="/components/list"/>
     </van-cell-group>
+    <div class="test-card">1</div>
   </div>
 </template>
 

@@ -1,7 +1,5 @@
 <template>
   <div>
-        3
-
   </div>
 </template>
 
@@ -10,14 +8,13 @@ export default {
   name: 'TabTemplate',
   data() {
     return {
-
     }
   },
   mounted() {
     console.log('ab-templatet-初始化了')
   },
   methods: {
-
+    
   }
 }
 </script>
